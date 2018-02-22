@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Show the local Weather - a freeCodeCamp Intermediate Front-end Project</title>
-        <meta charset="utf-8">
-        <meta name="author" content="Giang Vu">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
 
-    <body>
-        <div class="container">
-            <div class="col-md-8 col-md-offset-2">
-              <h1 class="title">What's the weather like at the moment?</h1>
-            </div>
-            <div class="col-md-offset-4 col-md-4 text-center">
-              <button type="button" class="btn btn-default get-weather" onclick="submit()">Find out now</button>
-            </div>
-            <div class="container" id="weather__display">
-              <div class= "col-md-offset-4 col-md-4" id="weather__display--location">
-                <p>
-              </div>
-            </div>
-            
+<head>
+    <title>Show the local Weather - a freeCodeCamp Intermediate Front-end Project</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Giang Vu">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Load jQuery -->
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Load custom CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+</head>
+
+<body>
+    <div class="container main text-center">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="title">What's the weather like at the moment?</h1>
         </div>
+        <div class="col-md-offset-4 col-md-4">
+            <button type="button" class="btn btn-default custom-button" id="get-weather">Find out now</button>
+            <button type="button" class="btn btn-default custom-button" id="temp-toggle">Convert to Fahrenheit</button>
+        </div>
+        <div id="weather__display">
+            <h2 class="col-md-offset-4 col-md-4" id="js-weather__display--location"></h2>
+            <h2 class="col-md-offset-4 col-md-4" id="js-weather__display--temperature"></h2>
+            <h2 class="col-md-offset-4 col-md-4" id="js-weather__display--condition"></h2>
+        </div>
+    </div>
 
-        <div id="myLocation">Hello</div>
-        
-        <script src="js/location.js"></script>
+    <!-- Load custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
 
-        
-    </body>
 </html>
