@@ -14,8 +14,11 @@ function getWeather() {
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position, geoError, geoOptions) {
             var api = "https://fcc-weather-api.glitch.me/api/current?";
+            var randomLat = Math.random() * (180) - 90;
+            var randomLon = Math.random() * (360) - 180;
             $.getJSON(api + 'lat=' + position.coords.latitude + '&lon=' + position.coords.longitude, function (data) {
 
+                console.log(data);
                 // display user's current location
                 var cityName = data.name;
                 var countryName = data.sys.country;
@@ -29,6 +32,12 @@ function getWeather() {
                 var condition = data.weather[0].main;
                 var conditionIcon = data.weather[0].icon;
                 conditionDisplay.innerHTML = condition + "&nbsp;" + "<img src=" + conditionIcon + ">";
+                if (conditionIcon === undefined) {
+                    var icon = document.querySelector("#js-weather__display--condition > img");
+                    icon.src = "assets/images/default-icon.png";
+                    icon.style.width = "50px";
+                    icon.style.height = "50px";
+                }
 
                 // update background image
                 setBackground(condition);
@@ -79,7 +88,7 @@ function tempToggle() {
 // Secondary feature: Set background image depending on the weather condition
 function setBackground(condition) {
     var body = document.querySelector("body");
-    body.style.backgroundImage = "url('" + "assets/images/" + condition + ".jpg"; "')";
+    body.style.backgroundImage = "url('" + "assets/images/" + String(condition).toLowerCase() + ".jpg"; "')";
     body.style.backgroundRepeat = "no-repeat";
     body.style.backgroundSize = "cover";
     // Change the title's font color
